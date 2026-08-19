@@ -16,8 +16,13 @@ export function PricingSection() {
         {menuItems.map((item, i) => (
           <Reveal as="li" key={item.name} delay={i * 60}>
             <div className="flex min-h-16 items-center justify-between gap-3 rounded-2xl border border-border/70 bg-card px-4 py-3.5 shadow-[var(--shadow-card)] transition-transform duration-300 hover:-translate-y-0.5">
-              <span className="min-w-0 truncate text-sm font-semibold text-chocolate sm:text-base">
+              <span className="min-w-0 text-sm font-semibold text-chocolate sm:text-base">
                 {item.name}
+                {"packSize" in item && item.packSize ? (
+                  <span className="mt-0.5 block text-xs font-medium text-muted-foreground">
+                    Pack of {item.packSize}
+                  </span>
+                ) : null}
               </span>
               <span className="shrink-0 rounded-full bg-chocolate px-3 py-1 text-sm font-bold text-gold">
                 ₹{item.price}

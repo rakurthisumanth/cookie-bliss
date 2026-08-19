@@ -28,8 +28,11 @@ export function ProductCard({
           decoding="async"
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.06]"
         />
-        <span className="absolute right-3 top-3 rounded-full bg-espresso/85 px-3 py-1 text-xs font-semibold text-gold backdrop-blur-sm">
+        <span className="absolute right-3 top-3 rounded-full bg-espresso/85 px-3 py-1.5 text-center text-xs font-semibold leading-tight text-gold backdrop-blur-sm">
           ₹{product.price}
+          <span className="mt-0.5 block text-[0.65rem] font-medium text-gold/85">
+            Pack of {product.packSize}
+          </span>
         </span>
       </div>
       <div className="flex flex-1 flex-col gap-2 p-4 sm:p-5">
@@ -41,7 +44,7 @@ export function ProductCard({
         </p>
         <div className="mt-auto pt-4">
           <OrderButton
-            productName={product.name}
+            productName={`${product.name} (Pack of ${product.packSize})`}
             price={product.price}
             label="Order Now"
             size="sm"

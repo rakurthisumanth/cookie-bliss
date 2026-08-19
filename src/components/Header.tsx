@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { NAV_LINKS, SITE } from "@/config/site";
-import { OrderButton } from "./OrderButton";
 import { cn } from "@/lib/utils";
 
 export function Header() {
@@ -26,15 +25,15 @@ export function Header() {
       className={cn(
         "fixed inset-x-0 top-0 z-40 transition-all duration-300",
         scrolled || open
-          ? "border-b border-cream/10 bg-espresso/85 backdrop-blur-md"
+          ? "border-b border-cream/10 bg-espresso/90 shadow-[0_12px_40px_-20px_oklch(0.1_0.04_42/0.7)] backdrop-blur-xl"
           : "bg-transparent",
       )}
     >
-      <div className="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)_auto] items-center gap-3 px-4 py-2.5 sm:px-6 lg:py-3">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6 sm:py-5 lg:py-6">
         <button
           type="button"
           onClick={() => go("home")}
-          className="flex min-w-0 items-center gap-2.5 text-left"
+          className="flex min-w-0 items-center gap-3.5 text-left sm:gap-4"
           aria-label={`${SITE.name} — home`}
         >
           <img
@@ -42,56 +41,52 @@ export function Header() {
             alt={`${SITE.name} logo`}
             width={512}
             height={512}
-            className="h-10 w-10 shrink-0 object-contain sm:h-11 sm:w-11"
+            className="h-16 w-16 shrink-0 object-contain drop-shadow-[0_8px_18px_oklch(0.17_0.04_42/0.45)] sm:h-[4.75rem] sm:w-[4.75rem] lg:h-20 lg:w-20"
           />
-          <span className="min-w-0 truncate font-display text-base font-semibold leading-tight text-cream sm:text-lg">
+          <span className="min-w-0 truncate font-display text-xl font-semibold leading-tight text-cream sm:text-2xl lg:text-[1.85rem]">
             Bachelor Baabulu
-            <span className="ml-1 hidden text-gold sm:inline">Cookies</span>
+            <span className="ml-1.5 hidden text-gold sm:inline">Cookies</span>
           </span>
         </button>
 
-        <nav className="hidden items-center gap-7 lg:flex">
+        <nav className="hidden items-center gap-8 xl:gap-10 lg:flex">
           {NAV_LINKS.map((l) => (
             <button
               key={l.id}
               type="button"
               onClick={() => go(l.id)}
-              className="text-sm font-medium text-cream/80 transition-colors hover:text-gold"
+              className="text-[0.95rem] font-medium tracking-wide text-cream/85 transition-colors hover:text-gold"
             >
               {l.label}
             </button>
           ))}
         </nav>
 
-        <div className="flex items-center justify-end gap-2">
-          <OrderButton size="sm" className="hidden lg:inline-flex" />
-          <button
-            type="button"
-            onClick={() => setOpen((v) => !v)}
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-cream/20 text-cream lg:hidden"
-          >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          className="flex h-12 w-12 items-center justify-center rounded-full border border-cream/20 text-cream lg:hidden"
+        >
+          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
       </div>
 
       {open && (
-        <div className="border-t border-cream/10 bg-espresso/95 px-4 pb-5 pt-2 backdrop-blur-md lg:hidden">
+        <div className="border-t border-cream/10 bg-espresso/95 px-4 pb-6 pt-2 backdrop-blur-md lg:hidden">
           <nav className="flex flex-col">
             {NAV_LINKS.map((l) => (
               <button
                 key={l.id}
                 type="button"
                 onClick={() => go(l.id)}
-                className="min-h-12 border-b border-cream/10 text-left font-display text-lg text-cream/90 transition-colors hover:text-gold"
+                className="min-h-14 border-b border-cream/10 text-left font-display text-xl text-cream/90 transition-colors hover:text-gold"
               >
                 {l.label}
               </button>
             ))}
           </nav>
-          <OrderButton className="mt-4 w-full" />
         </div>
       )}
     </header>

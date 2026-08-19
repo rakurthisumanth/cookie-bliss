@@ -1,11 +1,10 @@
 /** Single source of truth for brand + contact configuration. */
-export const WHATSAPP_NUMBER = "919999999999"; // country code + number, digits only
+export const WHATSAPP_NUMBER = "918341746459"; // country code + number, digits only
 
 export const SITE = {
   name: "Bachelor Baabulu Cookies",
   tagline: "Baked with Passion. Made for Everyone.",
-  instagram: "https://instagram.com/",
-  facebook: "https://facebook.com/",
+  instagram: "https://www.instagram.com/bachelor_baabulu",
 } as const;
 
 export const NAV_LINKS = [

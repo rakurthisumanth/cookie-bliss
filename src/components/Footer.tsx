@@ -1,4 +1,4 @@
-import { Instagram, Facebook } from "lucide-react";
+import { Instagram } from "lucide-react";
 import logo from "@/assets/logo.png";
 import { NAV_LINKS, SITE } from "@/config/site";
 import { OrderButton } from "./OrderButton";
@@ -30,19 +30,10 @@ export function Footer() {
               href={SITE.instagram}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Instagram"
+              aria-label="Instagram @bachelor_baabulu"
               className="flex h-11 w-11 items-center justify-center rounded-full border border-cream/20 text-cream/80 transition-colors hover:border-gold hover:text-gold"
             >
               <Instagram className="h-5 w-5" />
-            </a>
-            <a
-              href={SITE.facebook}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-cream/20 text-cream/80 transition-colors hover:border-gold hover:text-gold"
-            >
-              <Facebook className="h-5 w-5" />
             </a>
           </div>
         </div>
@@ -71,7 +62,7 @@ export function Footer() {
             Order
           </h3>
           <p className="mt-3 text-sm leading-relaxed text-cream/70">
-            Message us on WhatsApp and we'll bake your box fresh.
+            Message us on WhatsApp at 83417 46459 and we'll bake your box fresh.
           </p>
           <OrderButton className="mt-4 w-full sm:w-auto" />
         </div>

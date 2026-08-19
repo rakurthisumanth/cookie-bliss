@@ -51,12 +51,16 @@ export function Features() {
 
 export function TrustStrip() {
   return (
-    <section className="bg-chocolate px-4 py-8 sm:px-6">
+    <section className="relative overflow-hidden bg-chocolate px-4 py-10 sm:px-6">
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent"
+        aria-hidden
+      />
       <ul className="mx-auto grid max-w-5xl grid-cols-2 gap-3 md:grid-cols-4">
         {features.map((f) => (
           <li
             key={f.title}
-            className="flex items-center gap-2.5 rounded-2xl border border-cream/10 px-3 py-3"
+            className="flex items-center gap-2.5 rounded-2xl border border-gold/15 bg-cream/[0.04] px-3 py-3.5 shadow-[inset_0_1px_0_color-mix(in_oklab,var(--cream)_8%,transparent)]"
           >
             <f.icon className="h-5 w-5 shrink-0 text-gold" aria-hidden />
             <span className="min-w-0 text-xs font-semibold leading-tight text-cream sm:text-sm">
